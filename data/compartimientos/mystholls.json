@@ -1,0 +1,23 @@
+{
+    "nombre_tienda": "Mystholls",
+    "descripcion": "Un rincón oscuro del barco donde la madera parece susurrar secretos antiguos.",
+    "emoji": "🔮",
+    "objetos": [
+        {
+            "id": "ascua_discord",
+            "nombre": "Ascua de discord",
+            "precio": 1500,
+            "stock_actual": 2,
+            "stock_maximo": 5,
+            "descripcion": "Un fragmento ardiente que distorsiona la realidad."
+        },
+        {
+            "id": "mysterybox_ares",
+            "nombre": "Mysterybox Ares",
+            "precio": 1000,
+            "stock_actual": 10,
+            "stock_maximo": 10,
+            "descripcion": "Caja misteriosa con equipamiento bendecido por el dios de la guerra."
+        }
+    ]
+}

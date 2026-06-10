@@ -1,0 +1,15 @@
+{
+    "nombre_tienda": "BloonsTD6",
+    "descripcion": "Un compartimiento con olor a pólvora y goma quemada. Se escuchan chillidos de monos al fondo.",
+    "emoji": "🐒",
+    "objetos": [
+        {"id": "grimorio_corvus", "nombre": "Grimorio de Corvus", "precio": 1666, "stock_actual": 1, "stock_maximo": 3, "descripcion": "Un libro oscuro lleno de magia de los espíritus."},
+        {"id": "katanas_sauda", "nombre": "Katanas gemelas de Sauda", "precio": 1100, "stock_actual": 5, "stock_maximo": 5, "descripcion": "Cuchillas afiladas que cortan hasta el plomo."},
+        {"id": "varita_ezili", "nombre": "Varita mágica de Ezili", "precio": 700, "stock_actual": 5, "stock_maximo": 5, "descripcion": "Magia vudú en la palma de tu mano."},
+        {"id": "jetpack_rosalia", "nombre": "Jetpack de Rosalia", "precio": 450, "stock_actual": 10, "stock_maximo": 10, "descripcion": "Movilidad aérea inigualable."},
+        {"id": "lanzallamas_gwen", "nombre": "Lanzallamas de Gwendolyn", "precio": 300, "stock_actual": 10, "stock_maximo": 10, "descripcion": "¡Fuego! ¡Más fuego!"},
+        {"id": "rana_oberyn", "nombre": "Rana de Oberyn", "precio": 200, "stock_actual": 15, "stock_maximo": 15, "descripcion": "Una compañera anfibia misteriosa."},
+        {"id": "arco_quincy", "nombre": "Arco de Quincy", "precio": 100, "stock_actual": 20, "stock_maximo": 20, "descripcion": "Nunca falla su objetivo."},
+        {"id": "esencia_moneril", "nombre": "Esencia moneril", "precio": 15, "stock_actual": 100, "stock_maximo": 100, "descripcion": "Poder puro de mono embotellado."}
+    ]
+}
