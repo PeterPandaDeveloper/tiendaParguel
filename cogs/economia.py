@@ -3,17 +3,13 @@ from discord.ext import commands
 from discord import app_commands
 import aiosqlite
 
-# ⚠️ Configuración de tu bot
-EMOTE = "<:ricomacpato:AQUI_PONES_EL_ID>" 
-ROL_OFICIAL = "Tesorero" # El nombre exacto del rol que podrá usar comandos de admin
+EMOTE = "<:ricomacpato:AQUI_PONES_EL_ID>" # Asegúrate de poner tu ID aquí
+ROL_OFICIAL = "Tesorero" # Candado de seguridad
 
-# Candado de seguridad personalizado para Oficiales del Barco
 def check_oficial():
     def predicate(interaction: discord.Interaction) -> bool:
-        # Pasa si es administrador de Discord
         if interaction.user.guild_permissions.administrator:
             return True
-        # Pasa si tiene el rol específico
         if any(rol.name.lower() == ROL_OFICIAL.lower() for rol in interaction.user.roles):
             return True
         return False
@@ -25,17 +21,15 @@ class Economia(commands.Cog):
         self.bot = bot
         self.db_path = "data/pauliales.db"
 
-    # Se ejecuta al encender el bot para preparar las tablas
+    # Preparar las tablas
     async def cog_load(self):
         async with aiosqlite.connect(self.db_path) as db:
-            # Tabla de dinero
             await db.execute('''
                 CREATE TABLE IF NOT EXISTS usuarios (
                     user_id INTEGER PRIMARY KEY,
                     pauliales INTEGER DEFAULT 0
                 )
             ''')
-            # NUEVA: Tabla de inventarios (Mochilas de los jugadores)
             await db.execute('''
                 CREATE TABLE IF NOT EXISTS inventarios (
                     user_id INTEGER,
@@ -109,15 +103,15 @@ class Economia(commands.Cog):
     @check_oficial()
     async def dar(self, interaction: discord.Interaction, jugador: discord.Member, cantidad: int):
         nuevo_saldo = await self.actualizar_balance(jugador.id, cantidad)
-        await interaction.response.send_message(f"✅ Se han otorgado **{cantidad}** {EMOTE} a {jugador.mention}. Su nuevo saldo es: **{nuevo_saldo}**.")
+        await interaction.response.send_message(f"✅ Se han otorgado **{cantidad}** {EMOTE} pauliales a {jugador.mention}. Su nuevo saldo es: **{nuevo_saldo}** pauliales.")
 
     @app_commands.command(name="pt-remover-pauliales", description="(Oficial) Quita pauliales a un jugador")
     @check_oficial()
     async def remover(self, interaction: discord.Interaction, jugador: discord.Member, cantidad: int):
         nuevo_saldo = await self.actualizar_balance(jugador.id, -cantidad)
-        await interaction.response.send_message(f"🔨 Se han retirado **{cantidad}** {EMOTE} a {jugador.mention}. Su nuevo saldo es: **{nuevo_saldo}**.")
+        await interaction.response.send_message(f"🔨 Se han retirado **{cantidad}** {EMOTE} pauliales a {jugador.mention}. Su nuevo saldo es: **{nuevo_saldo}** pauliales.")
 
-    # Manejo de errores por si alguien sin permiso intenta usar comandos de oficial
+    # Manejo de errores de permisos
     @dar.error
     @remover.error
     async def permisos_error(self, interaction: discord.Interaction, error: app_commands.AppCommandError):

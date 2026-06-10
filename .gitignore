@@ -1,0 +1,20 @@
+# Secretos y Tokens (¡VITAL, NUNCA SUBIR!)
+.env
+
+# Base de datos de la economía (Evita resetear el dinero de la gente)
+*.db
+*.sqlite3
+data/pauliales.db
+
+# Archivos temporales y caché de Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Entornos virtuales (si usas alguno)
+venv/
+env/
+
+# Archivos de tu editor de código
+.vscode/
+.idea/
