@@ -1,23 +1,14 @@
 {
     "nombre_tienda": "Mystholls",
-    "descripcion": "Un rincón oscuro del barco donde la madera parece susurrar secretos antiguos.",
+    "description": "Un rincón oscuro del barco donde la madera parece susurrar secretos antiguos.",
     "emoji": "🔮",
     "objetos": [
-        {
-            "id": "ascua_discord",
-            "nombre": "Ascua de discord",
-            "precio": 1500,
-            "stock_actual": 2,
-            "stock_maximo": 5,
-            "descripcion": "Un fragmento ardiente que distorsiona la realidad."
-        },
-        {
-            "id": "mysterybox_ares",
-            "nombre": "Mysterybox Ares",
-            "precio": 1000,
-            "stock_actual": 10,
-            "stock_maximo": 10,
-            "descripcion": "Caja misteriosa con equipamiento bendecido por el dios de la guerra."
-        }
+        {"id": "esencia_discord", "nombre": "Esencia de discord", "precio": 8, "stock_actual": 100, "stock_maximo": 100, "description": "Teletransporte a cama."},
+        {"id": "polvo_estelar", "nombre": "Polvo estelar", "precio": 10, "stock_actual": 60, "stock_maximo": 60, "description": "Encantamiento eficiencia I."},
+        {"id": "orbe_vision", "nombre": "Orbe de visión", "precio": 25, "stock_actual": 15, "stock_maximo": 15, "description": "Revela minerales."},
+        {"id": "capa_sombria", "nombre": "Capa sombría", "precio": 90, "stock_actual": 8, "stock_maximo": 8, "description": "Invisibilidad 20s."},
+        {"id": "mysterybox_ares", "nombre": "Mysterybox Ares", "precio": 120, "stock_actual": 10, "stock_maximo": 10, "description": "Espada con filo II."},
+        {"id": "ascua_discord", "nombre": "Ascua de discord", "precio": 180, "stock_actual": 2, "stock_maximo": 5, "description": "Teletransporte aleatorio."},
+        {"id": "amulet_vital", "nombre": "Amuleto vital", "precio": 70, "stock_actual": 10, "stock_maximo": 10, "description": "+2 corazones permanente."}
     ]
 }

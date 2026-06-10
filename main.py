@@ -8,25 +8,34 @@ TOKEN = os.getenv('DISCORD_TOKEN')
 
 class BarbaEnraizadaBot(commands.Bot):
     def __init__(self):
-        # Configuramos los intents básicos
         intents = discord.Intents.default()
         intents.message_content = True
         super().__init__(command_prefix='be!', intents=intents)
 
     async def setup_hook(self):
-        # El barco despierta y carga sus compartimientos (Cogs)
-        await self.load_extension('cogs.economia')
-        await self.load_extension('cogs.tiendas') # Lo activaremos cuando hagamos las tiendas
+        # Cargar todos los cogs de la carpeta cogs/
+        for filename in os.listdir('./cogs'):
+            if filename.endswith('.py'):
+                try:
+                    await self.load_extension(f'cogs.{filename[:-3]}')
+                    print(f"✅ Cog cargado: {filename}")
+                except Exception as e:
+                    print(f"❌ Error cargando {filename}: {e}")
         
-        # Sincronizamos los comandos / con Discord
+        # Sincronizar comandos slash
         await self.tree.sync()
-        print("🌐 Slash commands del Barba Enraizada sincronizados.")
+        print("🌐 Slash commands sincronizados con Discord.")
 
 bot = BarbaEnraizadaBot()
 
 @bot.event
 async def on_ready():
     print(f'🏴‍☠️ {bot.user} ha zarpado. La madera cruje y el bot está en línea.')
+    # Opcional: mostrar comandos registrados
+    print(f"Comandos disponibles: {[cmd.name for cmd in bot.tree.get_commands()]}")
 
 if __name__ == '__main__':
-    bot.run(TOKEN)
+    if not TOKEN:
+        print("❌ ERROR: No se encontró DISCORD_TOKEN en el archivo .env")
+    else:
+        bot.run(TOKEN)
